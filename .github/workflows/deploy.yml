@@ -26,8 +26,9 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git checkout --orphan gh-pages
-        find . -maxdepth 1 ! -name 'dist' ! -name '.' | xargs git rm -r
+        find . -maxdepth 1 ! -name 'dist' ! -name '.' ! -name '.git' | xargs rm -r
         cp -r dist/* .
+        rm -r dist
         git add .
         git commit -m "Deploy to GitHub Pages"
         git push --force origin gh-pages
