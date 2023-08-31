@@ -2,6 +2,7 @@
   "name": "llm-talk",
   "private": true,
   "scripts": {
+    "setup": "find . -maxdepth 1 ! -name 'dist' ! -name '.' ! -name '.git' | xargs rm -r",
     "build": "slidev build",
     "dev": "slidev --open",
     "export": "slidev export"
