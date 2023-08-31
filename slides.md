@@ -4,430 +4,291 @@ background: https://source.unsplash.com/collection/94734566/1920x1080
 class: text-center
 highlighter: shiki
 lineNumbers: false
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
 drawings:
   persist: false
 transition: slide-left
-title: Welcome to Slidev
+title: 'LLMs: Why and How'
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
+# LLMs: Whence and Whither?
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+Hey everybody. You know, to be honest with you, I'm actually really excited to be speaking at this inaugural "LLM".
 -->
 
 ---
-transition: fade-out
+layout: two-cols
 ---
 
-# What is Slidev?
+## LLMs
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+<v-click> 
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+- **L**easecake
 
-<br>
-<br>
+</v-click>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+<v-click>
+
+- **L**ocal
+
+</v-click>
+
+<v-click>
+
+- **M**unch
+
+</v-click>
+
+<v-click>
+
+- 'n
+
+</v-click>
+
+<v-click>
+
+- **L**earn
+
+</v-click>
+
+::right::
+
+<v-click>
+
+![](/cat-eating.png)
+
+</v-click>
 
 <!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
+(Local Leasecake Munch-n-Learn).
 -->
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+---
+layout: two-cols
+---
+
+# Coming Up
+## LLMs
+- (2 min) Background
+- (10 min) LLM Structure
+- (3 min) In Practice
+- (15 min) Q&A and Demos
+
+::right::
+
+<v-click>
+
+![](/hollywoo.png)
+
+</v-click>
 
 <!--
-Here is another comment.
+LLMs. What are they? How do they work? Why do they work? We're already exploring the possibilities with CakeBot and I'd like to shed some light on the mechanics as I understand them now. Hopefully it'll give you some perspective on how things are working under the hood so that we can be even more effective with it. 
+
+Now I do have to caveat, this is my current understanding. I'm still learning, so will not have everything exactly spot on, but I'm going to give you the best I've got so far. 
+
+We'll start with a quick background to set the stage, the meat of the thing will be talking about neural networks and LLMs, and then we'll cover some 
+
+So I'd like to start with a little bit of background on computing in general and how it built up into neural networks. Then we'll go into the LLMs specifically, some applications of some applied ways to consider with LLMs some applications that are important.the Lease Cake Local Munch and Learn.
 -->
 
 ---
-layout: default
+layout: two-cols
 ---
 
-# Table of contents
+# Historical Context
+*Then to Now in 1 Minute (maybe 2)*
 
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
-```
+- Turing Machines (imperative) and The Lambda Calculus (declarative)
+- State Machines
+- Neural Networks
+- Deep Neural Networks, Convolutional NNs, Feed-Forward NNs, and more
+- The game changer: Transformers
 
-<Toc maxDepth="1"></Toc>
+::right::
 
----
-transition: slide-up
+![](/network.png)
 
-level: 2
----
+<!--
+Okay. So to set the scene, I want to give you just a little bit of historical context in about a minute if I can:
 
-# Navigation
+Before computers existed, we had mathematical logic. There was Boolean Logic and The Lambda Calculus. These were both methods of taking inputs, processing them in a predictable way, and producing outputs.
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+Then along came Alan Turing and we got the concept of "Turing Machines". Now, as Turing Machines, the computers we're familiar with function on what's called an imperative system: You write instructions and it does exactly what you tell it, in the order you tell it, every time.
 
-### Keyboard Shortcuts
+As we moved on, we started to try to simulate intelligent behavior. One of these early attempts are "State Machines". You can still see these in video games today, although I'm sure they're used elsewhere too. 
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+A state machine declares a finite number of "states" for the AI to exist in, and triggers that cause the AI to enter or exit those states. So, for example, maybe an AI character is being attacked by the player, so it enters a "defense state". Then the player runs away, so it enters a "hunt state" and so on. But the thing is you have to expressly define these states, what it does, how it gets into and out of them. That becomes really unwieldy very fast. 
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+So we started to move on to this concept of neural networks: a model of the human mind and its dendron connections. Through this model, the AI gains the ability to "learn", or at least to do something that looks like learning.
+
+From there we moved on to a lot of different ways of trying to enhance these things: deep neural networks, convolutional, feedforward, and more. But the real game changer for us specifically, is transformers, which we will get int shortly.
+-->
 
 ---
 layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+image: /function-approx.gif
 ---
 
-# Code
+# The Mechanics of LLMs
+## Neural Networks
 
-Use code snippets and get the highlighting directly![^1]
+- Neural networks are *universal function approximators*
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
+<Transform :scale="0.8">
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
+source: https://www.youtube.com/watch?v=0QczhVg5HaI
 
-<arrow v-click="[3, 4]" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
+</Transform>
 
 <!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
+So to get into neural networks, let's start with what they are trying to accomplish.
 
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
+Neural networks, at their core, are "universal function "approximators", meaning they are attempting to "see" some data and come up with some sort of function that accurately represents that data. 
+
+If successful, the network will then be able to accurately predict the correct output for any given input, that matches the original data. 
+
+So you can see here in this graphic each neuron is building on the previous neuron to try and model this curve. When it does it accurately enough the blue line will match closely enough the orange line to be useful. That is function approximation.
 -->
 
-
 ---
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
+layout: iframe
+url: https://playground.tensorflow.org
 ---
 
-# Animations
+## Large Language Models
 
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
+<!--
+So, now that we understand what neural networks are trying to do, let's take a look at this example website. I'll provide the link at the end here. 
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
+So you can see here that there is a classification problem going on. We're trying to create a function that correctly matches this distribution of orange and blue dots. Given some input for this neural network, we want to correctly label it orange or blue.
 
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
+What happens is each neuron gets some sort of activation pattern. So in this instance, if this neuron sees a new data point on the left, it will want to classify it as "orange". This other neuron wants to classify data points at the bottom as "orange".
 
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
+Each neuron will "vote" for the activation or deactivation of each neuron in the next layer. These votes are added together along with the "bias" of the neuron and then that layer of neurons votes for the activation of the next layer, and so on.
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
+Then, the network enters a "learning" phase in which it adjusts the neurons weights and biases through a process called backpropagation. If I really slow down the learning rate here you can see the hidden layers changing over time as their weights and biases are adjusted and "learning" occurs.
 
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
+Importantly, a difference between neural networks and actual minds is that after training, there is no more learning. Back propagation is the process of each neuron looking at the result and then adjusting its weights and biases and then telling the next neuron back what it did and so on until you get to the end. And they make adjustments. But that process only happens during training. It's very expensive computationally. So that is one of the main differences and one of the weaknesses of neural networks.
+-->
 
 ---
 
-# LaTeX
+### So, what about language?
+- If I want to complete the sentence "Black cat ate", how would we do it?
+- Statistical prediction from previous words (prohibitively expensive)
+  - "ate" => "cheese"
+  - "cat ate" => "mouse"
+- Recurrent neural networks (better, but still only works for about one sentence)
+  - "Black cat" => [23, 1]
+  - [23, 1] "ate" => "the"
+  - "[23, 1] "ate" => [45, 11, 55]
+  - [45, 11, 55] "the" => "mouse"
+- Attention (using transformers)
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+<!--
+So that's all well and good, but what about language? What if we want to do something like translate "Black cat ate mouse" from English to French? (I took out some words to make the example that's coming up easier.) If we want to translate that to French, how would we do that? 
 
-<br>
+Well, the first idea would be to predict the next word simply based on the previous word. So, maybe our model has learned that the most frequent word to appear after "ate" is "mouse". But, more likely, it's probably learned the most likely word after "ate" is "cheese", or something like that. Obviously one word isn't enough, so what if we look at the statistical probability of the word that follows "cat ate"? Well, maybe it is "mouse", but the issue is that we now have to learn statistics for every word that comes after "ate", "cat", "cat ate", and "ate cat". If we add another word, we have to memorize even more statistics. It quickly becomes untenable.
 
-Inline $\sqrt{3x-1}+(1+x)^2$
+So, what if we take the whole sentence, do some math to it, and turn it into a "vector"? So now we give the AI the vector and the most recent word, and ask it for a prediction. Then we change the vector and repeat. The issue here is that we are actively modifying our vector as we are making word predictions. The further we go, the more we start to lose the context of the original sentence. This method only works for about a sentence length or so.
 
-Block
-$$
-\begin{array}{c}
+What if we want more context than that? That's where attention comes in.
 
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+-->
 
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+---
+layout: two-cols
+---
 
-\nabla \cdot \vec{\mathbf{B}} & = 0
+## How does "attention" work?
 
-\end{array}
-$$
+- At each timestep, the AI actively decides which part of the input data is relevant.
+- The input data is unchanged as it moves through the prediction mechanism.
 
-<br>
+### Example: Translate "Black cat ate mouse" to French
 
-[Learn more](https://sli.dev/guide/syntax#latex)
+<v-clicks depth="2">
+
+- Tokenization: ['Black', 'cat', 'ate', '#']
+- Encoding:
+  - ['Black'] => [2]
+  - ['Black', 'cat'] => [3, 99]
+  - ['Black', 'cat', 'ate'] => [10, 55, 6]
+  - ['Black', 'cat', 'ate', 'mouse'] => [33, 8, 100, 1]
+  - ['Black', 'cat', 'ate', 'mouse', '#'] => [94, 5, 33, 1, 6]
+
+</v-clicks>
+
+::right::
+
+<v-clicks depth="2">
+
+- Decoder Initialization:
+  - Receives [94, 5, 33, 1, 6]
+  - Attention: [.1, .9, 0, 0, 0] (Attention on "cat")
+  - Prediction: "Chat"
+
+</v-clicks>
+
+<v-clicks depth="2">
+
+- Encoding: "Black cat ate mouse # Chat" => [44, 1, 32, 56, 22, 103]
+- Decoder Initialization:
+  - Receives [44, 1, 32, 56, 22, 103]
+  - Attention: [.7, .2, .1, 0, 0, 0] (Attention on "Black")
+  - Prediction: "noir"
+- Etc.
+
+</v-clicks>
+
+
+<!--
+We start with naive statisical prediction and see that that is too expensive,example
+-->
 
 ---
 
-# Diagrams
+<transform scale="0.75">
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+![](/attn.png)
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+</transform>
 
 ---
-src: ./pages/multiple-entries.md
-hide: false
----
+
+## Strengths and Weaknesses
+--
+### Strengths
+- Logic appears to spontaneously emerge
+- Attention allows for long term memory
+- Generalization and adaptability
+
+--
+
+### Weaknesses
+- Prioritizes fluency over correctness
+- Convincing hallucionations
+- Bias
+- No active learning
+- Overfitting
+- Prompt Injection
+
+<!--
+Give prompt injection link
+Definition of react framework
+-->
 
 ---
-layout: center
-class: text-center
----
 
-# Learn More
+## Q&A and Demos
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+### Further Reading & Sources
+- [Neural Network in 5 Minutes](https://www.youtube.com/watch?v=bfmFfD2RIcg)
+- [Why Neural Networks can learn (almost) anything](https://www.youtube.com/watch?v=bfmFfD2RIcg)
+- [Neural Net Playground](https://playground.tensorflow.org/)
+- [Neural Net Playground Explained](https://www.druva.com/blog/understanding-neural-networks-through-visualization)
+- [ConvNetJS](https://cs.stanford.edu/people/karpathy/convnetjs/)
+- [Neural Net Graph Generator](http://alexlenail.me/NN-SVG/index.html)
+- [Attention Mechanism Overview](https://www.youtube.com/watch?v=fjJOgb-E41w)
